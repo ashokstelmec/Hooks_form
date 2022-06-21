@@ -1,0 +1,57 @@
+.App {
+  text-align: center;
+  /* background-color: yellow; */
+}
+
+/* form {
+  box-shadow: 10px 10px 10px ;
+  padding: 4rem;
+}  
+
+form label{
+  margin-right: 3rem;
+}
+
+.gender{
+  margin-left: -2.2rem;
+}
+
+.city{
+  margin-left: 6.5rem;
+  padding-right: 3rem;
+}
+
+.citi{
+  margin-right: 13rem;
+  width: 12%;
+  height: 26px;
+}
+
+button{
+  margin-left: 13.6rem;
+  background-color: red;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  width: 6%;
+  height: 30px;
+} */
+
+
+
+form{
+  width: 30%;
+  margin: 0 auto;
+  box-shadow: -1px 10px 68px 16px rgba(0,0,0,0.69);
+  padding: 2rem;
+}
+
+.form-group{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+button{
+  margin-top: 2rem;
+}
