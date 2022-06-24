@@ -3,18 +3,26 @@ import "./App.css";
 
 function App() {
   const [user, setUser] = useState({
-    title: [],
-    fName: "Type ashok",
+    subject: {},
+    fName: "",
     lName: "",
     gender: "",
     about: "",
     city: "",
   });
 
-  const { fName, lName, gender, about, city, title} = user;
+  const { fName, lName, gender, about, city, subject } = user;
 
   const handleChange = (e) => {
+    if (e.target.type === "checkbox") {
+      setUser((prev) => ({ ...prev, subject: {...prev.subject, [e.target.name]: e.target.checked} }));
+    }
+    else{
       setUser((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+      // taking previous old values stored in user state
+      // and then spreads it and then put new values there
+      // overwriting the old values with new values
+    }
   };
 
   return (
@@ -40,24 +48,22 @@ function App() {
           />
         </div>
         <div className="form-group">
-          <label>Title</label>
+          <label>Course</label>
           <div className="form-control">
             <input
               type="checkbox"
-              name="title"
-              defaultValue="mr"
-              defaultChecked={title.includes(['mr', 'mrs'])}
+              name="maths"
+              defaultChecked={subject["maths"]}
               onChange={handleChange}
             />
-            Mr.
+           Maths
             <input
               type="checkbox"
-              name="title"
-              defaultChecked={title.includes(['mr', 'mrs'])}
-              defaultValue="mrs"
+              name="biology"
+              defaultChecked={subject["biology"]}
               onChange={handleChange}
             />
-            Mrs.
+            Biology
           </div>
         </div>
         <div className="form-group">
@@ -67,16 +73,16 @@ function App() {
               type="radio"
               name="gender"
               defaultValue="male"
-              defaultChecked={gender === 'male'}
+              defaultChecked={gender === "male"}
               onChange={handleChange}
             />
             Male
             <input
               type="radio"
               name="gender"
-              defaultChecked={gender === 'female'}
+              defaultChecked={gender === "female"}
               defaultValue="female"
-              onChange={handleChange}
+              onChange={handleChange} 
             />
             Female
           </div>
@@ -84,11 +90,7 @@ function App() {
 
         <div className="form-group">
           <label>About me</label>
-          <textarea
-            name="about"
-            defaultValue="about"
-            onChange={handleChange}
-          />
+          <textarea name="about" defaultValue={about} onChange={handleChange} />
         </div>
         <div className="form-group">
           <label className="city"> City</label>
@@ -99,22 +101,23 @@ function App() {
               defaultValue={city}
               onChange={handleChange}
             >
-              <option value=''>Please choose</option>
-              <option value='delhi'>Delhi</option>
-              <option value='mumbai'>Mumbai</option>
-              <option value='kolkata'>Kolkata</option>
-              <option value='chennai'>Chennai</option>
-              <option value='patna'>Patna</option>
-              <option value='bangalore'>Bangalore</option>
-              <option value='bangalore1'>Bangalore1</option>
+              <option value="">Please choose</option>
+              <option value="delhi">Delhi</option>
+              <option value="mumbai">Mumbai</option>
+              <option value="kolkata">Kolkata</option>
+              <option value="chennai">Chennai</option>
+              <option value="patna">Patna</option>
+              <option value="bangalore">Bangalore</option>
+              <option value="bangalore1">Bangalore1</option>
             </select>
           </div>
         </div>
         <button type="submit" onSubmit="handleSubmit">
           Submit
         </button>
-        <h4>{JSON.stringify(user)}</h4>
       </form>
+
+      <h4>{JSON.stringify(use)}</h4>
     </div>
   );
 }
